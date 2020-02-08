@@ -32,17 +32,36 @@ const $ = selector => {
   const self = {
     element: document.querySelector(selector),
     html: () => self.element,
-    hide: () => (self.element.style.display = "none"),
+    hide: () => {
+      self.element.style.display = "none";
+      return self;
+    },
+    show: () => {
+      self.element.style.display = "block";
+      return self;
+    },
     on: (event, callback) => {
       self.element.addEventListener(event, callback);
+      return self;
+    },
+    addClass: className => {
+      self.element.classList.add(className);
+      return self;
+    },
+    removeClass: className => {
+      self.element.classList.remove(className);
+      return self;
     }
   };
-
   return self;
 };
 
 console.log($("#app").html());
 
-$("#app").on("click", function() {
-  alert("hello world");
-});
+$("#app")
+  .on("click", function() {
+    alert("hello world");
+  })
+  .addClass("red")
+  .hide()
+  .show();
