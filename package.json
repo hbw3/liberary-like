@@ -8,6 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "burhanuddinsarangpurwala": "1.0.1",
     "jquery": "3.4.1"
   },
   "devDependencies": {

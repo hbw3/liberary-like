@@ -1,3 +1,6 @@
+import $ from "burhanuddinsarangpurwala";
+
+console.log($("#app").html());
 //proxy design pattern
 function cryptoCurrency() {
   this.getValue = coin => {
@@ -34,7 +37,7 @@ function proxyCryptoCurrency() {
 
 const proxy = new proxyCryptoCurrency();
 
-console.log(proxy.getValue("Bitcoin"));
+/* console.log(proxy.getValue("Bitcoin"));
 console.log(proxy.getValue("Litecoin"));
 console.log(proxy.getValue("Ethereum"));
 console.log(proxy.getValue("Ethereum"));
@@ -46,4 +49,4 @@ console.log(proxy.getValue("Bitcoin"));
 console.log(proxy.getValue("Bitcoin"));
 console.log(proxy.getValue("Bitcoin"));
 console.log(proxy.getValue("Bitcoin"));
-console.log(proxy.getValue("Bitcoin"));
+console.log(proxy.getValue("Bitcoin")); */
