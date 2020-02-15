@@ -28,6 +28,7 @@ Dom.get("#app")
   .html("hello world again");
 
 //liberary like jquery
+//also it is like factory function
 const $ = selector => {
   const self = {
     element: document.querySelector(selector),
@@ -56,6 +57,7 @@ const $ = selector => {
   return self;
 };
 
+//const app = $("#app");
 console.log($("#app").html());
 
 $("#app")
