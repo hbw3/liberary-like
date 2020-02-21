@@ -64,6 +64,18 @@ const cats = [
     name: "South",
     parentId: "5de0e1eaf6b51a148cf3b53e",
     child: null
+  },
+  {
+    _id: "5e46b4ba1c9d440000772bfd",
+    name: "Allu Arjun",
+    parentId: "5e46b4ba1c9d440000772dfd",
+    child: null
+  },
+  {
+    _id: "5e46b4ba1c9d440000772cfd",
+    name: "Mahesh Babu",
+    parentId: "5e46b4ba1c9d440000772dfd",
+    child: null
   }
 ];
 
@@ -79,7 +91,7 @@ function unflatten(arr) {
     mappedArr[arrElem._id] = arrElem;
     mappedArr[arrElem._id]["children"] = [];
   }
-
+  debugger;
   for (var id in mappedArr) {
     if (mappedArr.hasOwnProperty(id)) {
       mappedElem = mappedArr[id];
@@ -97,4 +109,64 @@ function unflatten(arr) {
 }
 
 var tree = unflatten(cats);
-console.log(tree);
+//console.log(tree);
+var categoriesPrint = "";
+
+//recursion
+const printTree = tree => {
+  categoriesPrint += "<ul>";
+
+  for (let i in tree) {
+    categoriesPrint += "<li>" + tree[i].name + "</li>";
+
+    if (tree[i].children && tree[i].children.length) {
+      printTree(tree[i].children);
+    }
+  }
+
+  categoriesPrint += "</ul>";
+};
+
+printTree(tree);
+
+console.log(categoriesPrint);
+
+/*---------------------------------------------------------------------*/
+
+const categories = [
+  {
+    _id: "root",
+    tree: [],
+    parent: null
+  },
+  {
+    _id: "electronics",
+    tree: ["root"],
+    parent: "root"
+  },
+  {
+    _id: "embedded",
+    tree: ["root", "electronics"],
+    parent: "electronics"
+  },
+  {
+    _id: "cases",
+    tree: ["root"],
+    parent: "root"
+  },
+  {
+    _id: "big",
+    tree: ["root", "cases"],
+    parent: "cases"
+  },
+  {
+    _id: "small",
+    tree: ["root", "cases"],
+    parent: "cases"
+  },
+  {
+    _id: "yellow",
+    tree: ["root", "cases", "small"],
+    parent: "small"
+  }
+];

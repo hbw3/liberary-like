@@ -67,3 +67,24 @@ $("#app")
   .addClass("red")
   .hide()
   .show();
+
+//Chat
+class Member {
+  constructor(name) {
+    this.name = name;
+  }
+
+  send(message, tomember) {
+    tomember.receive(message, this.name);
+  }
+
+  receive(message, from) {
+    console.log(from + " to " + this.name + ": " + message);
+  }
+}
+
+const John = new Member("John");
+const Ross = new Member("Ross");
+
+John.send("Hello", Ross);
+//Ross.send("Hello", John);
