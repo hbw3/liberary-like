@@ -117,11 +117,13 @@ const printTree = tree => {
   categoriesPrint += "<ul>";
 
   for (let i in tree) {
-    categoriesPrint += "<li>" + tree[i].name + "</li>";
+    categoriesPrint += "<li>" + tree[i].name;
 
     if (tree[i].children && tree[i].children.length) {
       printTree(tree[i].children);
     }
+    
+    categoriesPrint += "</li>";    
   }
 
   categoriesPrint += "</ul>";
