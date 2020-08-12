@@ -3,16 +3,66 @@
   <head>
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
+    <style>
+      #app div {
+        width: 150px;
+        height: 150px;
+        padding: 50px;
+        margin: 20px;
+      }
+    </style>
   </head>
 
   <body>
-    <div id="app">Hello world</div>
+    <div id="app">
+      <!--  <div style="background:red">1</div>
+      <div style="background:green">2</div>
+      <div style="background:blue">3</div> -->
+    </div>
 
+    <button onclick="Shuffle()">Shuffle</button>
+    <input type="text" id="typing" onkeydown="hitApi()" />
     <!-- <script src="src/index.js"></script> -->
     <!-- <script src="src/proxy-pattern.js"></script> -->
     <!-- <script src="src/prototype.js"></script> -->
     <!-- <script src="src/classes.js"></script> -->
-    <script src="src/catTree.js"></script>
+    <!-- <script src="src/catTree.js"></script> -->
     <!-- <script src="src/mediator-pattern.js"></script> -->
+    <script src="src/debouncing-method.js"></script>
   </body>
+  <script>
+    var colors = ["red", "green", "blue"];
+
+    function Shuffle() {
+      var a = colors[0];
+      var b = colors[1];
+      var c = colors[2];
+
+      colors[0] = c;
+      colors[1] = a;
+      colors[2] = b;
+
+      console.log(colors);
+    }
+
+    /*--------------------prime number--------------------*/
+
+    function primeFactorsTo(max) {
+      var store = [],
+        i,
+        j,
+        primes = [];
+      for (i = 2; i <= max; ++i) {
+        if (!store[i]) {
+          primes.push(i);
+          for (j = i << 1; j <= max; j += i) {
+            store[j] = true;
+          }
+        }
+      }
+      return primes;
+    }
+
+    console.log(primeFactorsTo(5));
+  </script>
 </html>

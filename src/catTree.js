@@ -91,7 +91,6 @@ function unflatten(arr) {
     mappedArr[arrElem._id] = arrElem;
     mappedArr[arrElem._id]["children"] = [];
   }
-  debugger;
   for (var id in mappedArr) {
     if (mappedArr.hasOwnProperty(id)) {
       mappedElem = mappedArr[id];
@@ -122,8 +121,8 @@ const printTree = tree => {
     if (tree[i].children && tree[i].children.length) {
       printTree(tree[i].children);
     }
-    
-    categoriesPrint += "</li>";    
+
+    categoriesPrint += "</li>";
   }
 
   categoriesPrint += "</ul>";
