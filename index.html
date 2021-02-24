@@ -21,16 +21,25 @@
     </div>
 
     <button onclick="Shuffle()">Shuffle</button>
-    <input type="text" id="typing" onkeydown="hitApi()" />
+    <input type="text" id="typing" onclick="getData()" />
     <!-- <script src="src/index.js"></script> -->
     <!-- <script src="src/proxy-pattern.js"></script> -->
     <!-- <script src="src/prototype.js"></script> -->
-    <!-- <script src="src/classes.js"></script> -->
+    <script src="src/classes.js"></script>
     <!-- <script src="src/catTree.js"></script> -->
     <!-- <script src="src/mediator-pattern.js"></script> -->
-    <script src="src/debouncing-method.js"></script>
+    <!-- <script src="src/debouncing-method.js"></script> -->
   </body>
   <script>
+    let timer;
+    const getData = () => {
+      console.log("here comes");
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        console.log(document.getElementById("typing").value);
+      }, 300);
+    };
+
     var colors = ["red", "green", "blue"];
 
     function Shuffle() {
@@ -63,6 +72,6 @@
       return primes;
     }
 
-    console.log(primeFactorsTo(5));
+    //console.log(primeFactorsTo(5));
   </script>
 </html>
